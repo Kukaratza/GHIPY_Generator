@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GIPHY Generator</title>
+
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            margin: 55px;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,17 +55,22 @@
                 //var other = $(this).val();
 
                 $.ajax({
-                    url: "http://api.giphy.com/v1/gifs/search?q=" + giphyClicked + "&api_key=ZAa1d1Uc4X4BK9rydf5XPA8RKVqxoBk9&limit=5",
+                    url: "https://api.giphy.com/v1/gifs/search?q=" + giphyClicked + "&api_key=ZAa1d1Uc4X4BK9rydf5XPA8RKVqxoBk9&limit=5",
                     // url: "https://www.omdbapi.com/?t=" + giphyClicked + "&y=&plot=short&apikey=trilogy",
                     method: "GET"
-                }).then(function (response) {
+                }).done(function (response) {
                     console.log(response)
                     $('.info').empty()
-                    for (key in response)
-                       $('.info').append('<img src = '+response.data["0"].url+'>');
+                    // for (key in response)
+                    //     $('.info').append('<img src = ' + response.data[0].images.fixed_height_still.url + '>');
+
+                    for (var a = 0; a < response.data.length; a++) {
+
+                        $(".info").append('<img class="gif" src="' + response.data[a].images.fixed_height_still.url + '">');
                         // document.getElementById(".info").innerHTML = '<center><img src = "'+response.data["0"].url+'"  title="GIF via Giphy"></center>';
-                })
+                    };
             })
+            });
 
             // This function handles events where the add giphy button is clicked
             $("#add-giphy").on("click", function (event) {
@@ -76,6 +89,19 @@
 
             // Calling the renderButtons function to display the initial list of giphy
             renderButtons();
+
+            $('body').on('click', '.gif', function() {
+    	var src = $(this).attr("src");
+      if($(this).hasClass('playing')){
+         //stop
+         $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
+         $(this).removeClass('playing');
+      } else {
+        //play
+        $(this).addClass('playing');
+        $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
+      }
+    });
         </script>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -69,7 +69,7 @@
                         $(".info").append('<img class="gif" src="' + response.data[a].images.fixed_height_still.url + '">');
                         // document.getElementById(".info").innerHTML = '<center><img src = "'+response.data["0"].url+'"  title="GIF via Giphy"></center>';
                     };
-            })
+                })
             });
 
             // This function handles events where the add giphy button is clicked
@@ -90,18 +90,18 @@
             // Calling the renderButtons function to display the initial list of giphy
             renderButtons();
 
-            $('body').on('click', '.gif', function() {
-    	var src = $(this).attr("src");
-      if($(this).hasClass('playing')){
-         //stop
-         $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
-         $(this).removeClass('playing');
-      } else {
-        //play
-        $(this).addClass('playing');
-        $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
-      }
-    });
+            $('body').on('click', '.gif', function () {
+                var src = $(this).attr("src");
+                if ($(this).hasClass('playing')) {
+                    //stop
+                    $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
+                    $(this).removeClass('playing');
+                } else {
+                    //play
+                    $(this).addClass('playing');
+                    $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
+                }
+            });
         </script>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

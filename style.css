@@ -1,0 +1,44 @@
+        img {
+            width: 200px;
+            height: 200px;
+            margin: 55px;
+        }
+
+        .giphy-info {
+            margin: 10px;
+        }
+
+        .jumbotron {
+            background-image: url("assets/images/justice_league.png");
+            background-position: center;
+            background-size: cover; 
+            background-repeat: no-repeat;
+            height: 250px;
+        }
+
+        .btn {
+            border: 1px solid rgb(67,88,153);
+            color: rgb(67,88,153);
+            
+        }
+
+        .btn:hover {
+            background-color: rgba(65, 6, 6, 0.726);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            color: white;
+        }
+
+        #giphy-input {
+            width: 90%;
+        }
+
+        input{
+            text-align:center;
+         }
+
+         #add-giphy {
+            background-color: plum;
+         }
+      

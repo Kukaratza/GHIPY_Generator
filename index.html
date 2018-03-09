@@ -5,106 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <title>GIPHY Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="reset.css"> -->
 
-    <style>
-        img {
-            width: 200px;
-            height: 200px;
-            margin: 55px;
-        }
-    </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>GIPHY SEARCH</h1>
-
-        <!-- GIPHYs will get dumped here -->
-        <div id="giphy-view"></div>
-        <form id="giphy-form">
-            <label for="giphy-input">Think of a animal GIPHY</label>
-            <input type="text" id="giphy-input">
-            <br>
-
-            <!-- Button triggers new GIPHY to be added -->
-            <input id="add-giphy" type="submit" value="Add Giphy">
-        </form>
-
-        <div class="info"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript">
-
-            // Initial array of animals
-            var topics = ["Bunny", "Shark", "LOL", "Happy", "Lego"];
-
-            // Function for displaying giphy data
-            function renderButtons() {
-
-                // Delete the content inside the giphy-view div prior to adding new giphy
-                $('#giphy-view').html('')
-                // (this is necessary otherwise you will have repeat buttons)
-
-                // Loop through the array of giphy, then generate buttons for each giphy in the array
-                for (i = 0; i < topics.length; i++) {
-                    $('#giphy-view').append(`<button class="giphy-info" value="${topics[i]}">${topics[i]}</button>`)
-                }
-            }
-            $('#giphy-view').on('click', '.giphy-info', function (e) { //event delegation .
-                var giphyClicked = e.target.value;
-                //var other = $(this).val();
-
-                $.ajax({
-                    url: "https://api.giphy.com/v1/gifs/search?q=" + giphyClicked + "&api_key=ZAa1d1Uc4X4BK9rydf5XPA8RKVqxoBk9&limit=5",
-                    // url: "https://www.omdbapi.com/?t=" + giphyClicked + "&y=&plot=short&apikey=trilogy",
-                    method: "GET"
-                }).done(function (response) {
-                    console.log(response)
-                    $('.info').empty()
-                    // for (key in response)
-                    //     $('.info').append('<img src = ' + response.data[0].images.fixed_height_still.url + '>');
-
-                    for (var a = 0; a < response.data.length; a++) {
-
-                        $(".info").append('<img class="gif" src="' + response.data[a].images.fixed_height_still.url + '">');
-                        // document.getElementById(".info").innerHTML = '<center><img src = "'+response.data["0"].url+'"  title="GIF via Giphy"></center>';
-                    };
-                })
-            });
-
-            // This function handles events where the add giphy button is clicked
-            $("#add-giphy").on("click", function (event) {
-                // event.preventDefault() prevents submit button from trying to send a form.
-                // Using a submit button instead of a regular button allows the user to hit
-                // "Enter" instead of clicking the button if desired
-                event.preventDefault();
-
-                // Write code to grab the text the user types into the input field
-                var giphy = $('#giphy-input').val()
-                // Write code to add the new giphy into the giphy array
-                topics.push(giphy)
-                // The renderButtons function is called, rendering the list of giphy buttons
-                renderButtons();
-            });
-
-            // Calling the renderButtons function to display the initial list of giphy
-            renderButtons();
-
-            $('body').on('click', '.gif', function () {
-                var src = $(this).attr("src");
-                if ($(this).hasClass('playing')) {
-                    //stop
-                    $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
-                    $(this).removeClass('playing');
-                } else {
-                    //play
-                    $(this).addClass('playing');
-                    $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
-                }
-            });
-        </script>
+        <div class="jumbotron">
+            <!-- <h1>GIPHY SEARCH</h1> -->
+        </div>
     </div>
+
+        <!-- GIPHYs Buttons will get dumped here -->
+        <div class="container btns">
+            <div id="giphy-view"></div>
+        </div>
+<br>
+        <div class="container">
+            <div class="col-4 offset-4"
+            <form id="giphy-form">
+                <label for="giphy-input">Think of your favorite DC Comics Character</label>
+                <br>
+                <input type="text" id="giphy-input" placeholder=">>> DC Super Hero <<<">
+                <br>
+                <br>
+                <!-- Button triggers new GIPHY to be added -->
+                <input class="offset-4" id="add-giphy" type="submit" value="Add Giphy">
+            </form>
+        </div>
+
+        <div class="info text-center"></div>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="giphy.js"></script>
 </body>
 
 </html>

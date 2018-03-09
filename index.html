@@ -20,25 +20,26 @@
         </div>
     </div>
 
-        <!-- GIPHYs Buttons will get dumped here -->
-        <div class="container btns">
-            <div id="giphy-view"></div>
-        </div>
-<br>
-        <div class="container">
-            <div class="col-4 offset-4"
-            <form id="giphy-form">
-                <label for="giphy-input">Think of your favorite DC Comics Character</label>
-                <br>
-                <input type="text" id="giphy-input" placeholder=">>> DC Super Hero <<<">
-                <br>
-                <br>
-                <!-- Button triggers new GIPHY to be added -->
-                <input class="offset-4" id="add-giphy" type="submit" value="Add Giphy">
-            </form>
-        </div>
+    <!-- GIPHYs Buttons will get dumped here -->
+    <div class="container btns">
+        <div id="giphy-view"></div>
+    </div>
 
-        <div class="info text-center"></div>
+    <div class="container">
+        <div class="col-4 offset-4" form id="giphy-form">
+            <label for="giphy-input">Think of your favorite DC Comics Character</label>
+            <br>
+            <input type="text" id="giphy-input" placeholder=">>> DC Super Hero <<<">
+            <br>
+            <br>
+            <!-- Button triggers new GIPHY to be added -->
+            <input class="btn btn-primary" id="add-giphy" type="submit" value="Add Super Hero">
+            <input class="btn btn-danger offset-3" id="reset" type="reset" value="Reset">
+        </div>
+    </div>
+    
+    <!-- Giphys will be dump here-->
+    <div class="info text-center"></div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="giphy.js"></script>

@@ -20,7 +20,7 @@
                 //var other = $(this).val();
 
                 $.ajax({
-                    url: "https://api.giphy.com/v1/gifs/search?q=" + giphyClicked + "&api_key=ZAa1d1Uc4X4BK9rydf5XPA8RKVqxoBk9&limit=5",
+                    url: "https://api.giphy.com/v1/gifs/search?q=" + giphyClicked + "&api_key=ZAa1d1Uc4X4BK9rydf5XPA8RKVqxoBk9&limit=10",
                     method: "GET"
                 }).done(function (response) {
                     console.log(response);
@@ -29,8 +29,8 @@
                     let rating = response.data[a].rating;
                     console.log(rating);
                         $(".info").append('<img class="gif" src="' + response.data[a].images.fixed_height_still.url + '">');
-                        $("<p>").append(rating[a])
-                        $(".info").append(rating)
+                        // $("<p>").append(rating[a])
+                        // $(".info").append(rating)
                     };
                 })
             });
@@ -64,5 +64,9 @@
                     $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
                 }
             });
+
+            $("#reset").on("click", function () {
+                $(".gif").remove();
+            })
 
     

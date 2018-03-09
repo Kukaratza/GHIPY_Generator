@@ -19,6 +19,7 @@
         .btn {
             border: 1px solid rgb(67,88,153);
             color: rgb(67,88,153);
+            box-shadow: 2px 2px silver;
             
         }
 
@@ -42,3 +43,7 @@
             background-color: plum;
          }
       
+         .btn-danger {
+             width: 78px;
+             color: white;
+         }

@@ -64,7 +64,8 @@
             });
 
             $("#reset").on("click", function () {
-                $(".gif").remove();
+                $(".gif").empty();
+                $("ul").empty();
             })
 
     

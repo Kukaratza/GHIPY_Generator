@@ -28,9 +28,7 @@
                     for (var a = 0; a < response.data.length; a++) {
                     let rating = response.data[a].rating;
                     console.log(rating);
-                        $(".info").append('<img class="gif" src="' + response.data[a].images.fixed_height_still.url + '">');
-                        // $("<p>").append(rating[a])
-                        // $(".info").append(rating)
+                        $(".info").append(`<li class="list"><img class="gif" src="${response.data[a].images.fixed_height_still.url} "><p class="rating"><strong>Rating:</strong> ${response.data[a].rating}</li>`);
                     };
                 })
             });

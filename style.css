@@ -1,7 +1,7 @@
         img {
-            width: 200px;
-            height: 200px;
-            margin: 55px;
+            width: 350px;
+            height: 3500px;
+            margin: 20px;
         }
 
         .giphy-info {
@@ -46,4 +46,9 @@
          .btn-danger {
              width: 78px;
              color: white;
+         }
+
+         .list {
+            display: inline-block;
+            width: 33%;
          }
